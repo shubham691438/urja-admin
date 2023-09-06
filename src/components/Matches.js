@@ -126,7 +126,7 @@ export const Matches = () => {
           <label for="score" style={{ margin: "5px" }}>
             score : 
           </label>
-          <textarea style={{}}
+          <textarea 
             type="text"
             id="score"
             name="score"
