@@ -38,6 +38,18 @@ export const Navbar = () => {
           }}
         ></input>
       </Link>
+      <Link to="/results">
+        <input
+          type="button"
+          value="Results"
+          style={{
+            width: "150px",
+            height: "50px",
+            margin: "10px",
+            fontSize: "30px",
+          }}
+        ></input>
+      </Link>
     </div>
   );
 };
