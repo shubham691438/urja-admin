@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { Navbar } from "./Navbar";
 
-export const Matches = () => {
+export const Results = () => {
   const [sport, setSport] = useState("");
+  const [branch, setBranch] = useState("");
   const [gender, setGender] = useState("");
-  const [title, setTitle] = useState("");
-  const [team1, setTeam1] = useState("");
-  const [team2, setTeam2] = useState("");
-  const [score, setScore] = useState("");
-  const [result, setResult] = useState("");
+  const [medal, setMedal] = useState("");
+  const [points, setPoints] = useState("");
+  
 
   async function handleSubmit() {
-    if (!sport || !gender || !title || !team1 || !team2 || !score || !result) {
+    if (!sport || !gender || !branch || !medal || !points) {
       alert("please fill out all the fields");
       return;
     }
@@ -19,12 +18,10 @@ export const Matches = () => {
       method: "post",
       body: JSON.stringify({
         sport,
+        branch,
         gender,
-        title,
-        team1,
-        team2,
-        score,
-        result,
+       medal,
+        points, 
       }),
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +44,7 @@ export const Matches = () => {
           flexDirection: "column",
         }}
       >
-        <h2>Matches</h2>
+        <h2>Results</h2>
         <div>
           <label for="sport" style={{ margin: "5px" }}>
             sport : 
@@ -58,6 +55,19 @@ export const Matches = () => {
             name="sport"
             required={true}
             onChange={(e) => setSport(e.target.value)}
+          ></input>
+        </div>
+        <br></br>
+        <div>
+        <label for="branch" style={{ margin: "5px" }}>
+            Branch : 
+          </label>
+          <input
+            type="text"
+            id="branch"
+            name="branch"
+            required={true}
+            onChange={(e) => setBranch(e.target.value)}
           ></input>
         </div>
         <br></br>
@@ -83,68 +93,46 @@ export const Matches = () => {
         </div>
         <br></br>
         <div>
-          <label for="title" style={{ margin: "5px" }}>
-            matchTitle : 
+          <label for="medal" style={{ margin: "5px" }}>
+            Medal : 
           </label>
           <input
-            type="text"
-            id="title"
-            name="title"
-            required={true}
-            onChange={(e) => setTitle(e.target.value)}
+            type="radio"
+            value="gold"
+            name="medal"
+            defaultChecked={true}
+            onChange={(e) => setMedal(e.target.value)}
           ></input>
+          <label for="gold">Gold</label>
+          <input
+            type="radio"
+            value="silver"
+            name="medal"
+            onChange={(e) => setMedal(e.target.value)}
+          ></input>
+          <label for="silver">Silver</label>
+          <input
+            type="radio"
+            value="bronze"
+            name="medal"
+            onChange={(e) => setMedal(e.target.value)}
+          ></input>
+          <label for="bronze">Bronze</label>
         </div>
         <br></br>
         <div>
-          <label for="team1" style={{ margin: "5px" }}>
-            team1 : 
+          <label for="points" style={{ margin: "5px" }}>
+            Points Secured : 
           </label>
-          <input
-            type="text"
-            id="team1"
-            name="team1"
-            required={true}
-            onChange={(e) => setTeam1(e.target.value)}
-          ></input>
-        </div>
-        <br></br>
-        <div>
-          <label for="team2" style={{ margin: "5px" }}>
-            team2 : 
-          </label>
-          <input
-            type="text"
-            id="team2"
-            name="team2"
-            required={true}
-            onChange={(e) => setTeam2(e.target.value)}
-          ></input>
-        </div>
-        <br></br>
-
-        <div>
-          <label for="score" style={{ margin: "5px" }}>
-            score : 
-          </label>
-          <textarea style={{}}
-            type="text"
+          <textarea
+            type="decomal-number"
             id="score"
             name="score"
             required={true}
-            onChange={(e) => setScore(e.target.value)}
+            onChange={(e) => setPoints(e.target.value)}
           ></textarea>
         </div>
-        <br></br>
-        <div>
-          <label for="result">Enter the result : </label>
-          <input
-            type="text"
-            id="result"
-            name="result"
-            required={true}
-            onChange={(e) => setResult(e.target.value)}
-          ></input>
-        </div>
+        
         <br></br>
         <input
           type="button"
