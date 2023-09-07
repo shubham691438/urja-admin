@@ -12,6 +12,7 @@ export const Navbar = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        width: "100vw",
       }}
     >
       <Link to="/">
@@ -19,9 +20,10 @@ export const Navbar = () => {
           type="button"
           value="Matches"
           style={{
-            width: "150px",
+            minWidth: "33vw",
+            maxWidth: "150px",
             height: "50px",
-            margin: "10px",
+
             fontSize: "30px",
           }}
         ></input>
@@ -43,9 +45,24 @@ export const Navbar = () => {
           type="button"
           value="Results"
           style={{
-            width: "150px",
+            minWidth: "33vw",
+            maxWidth: "150px",
             height: "50px",
-            margin: "10px",
+
+            fontSize: "30px",
+          }}
+        ></input>
+      </Link>
+      <Link to="/winners">
+        <input
+          type="button"
+          value="Winners"
+          style={{
+            maxWidth: "150px",
+            minWidth: "33vw",
+
+            height: "50px",
+
             fontSize: "30px",
           }}
         ></input>
