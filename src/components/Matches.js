@@ -3,7 +3,7 @@ import { Navbar } from "./Navbar";
 
 export const Matches = () => {
   const [sport, setSport] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("male");
   const [title, setTitle] = useState("");
   const [team1, setTeam1] = useState("");
   const [team2, setTeam2] = useState("");
@@ -36,6 +36,13 @@ export const Matches = () => {
     if (data.msg) {
       alert("data inserted successfully");
     } else alert("data could not be uploaded");
+    setSport("");
+    setGender("");
+    setTitle("");
+    setTeam1("");
+    setTeam2("");
+    setScore("");
+    setResult("");
   }
 
   return (
@@ -58,6 +65,7 @@ export const Matches = () => {
             type="text"
             id="sport"
             name="sport"
+            value={sport}
             required={true}
             onChange={(e) => setSport(e.target.value)}
           ></input>
@@ -81,7 +89,7 @@ export const Matches = () => {
             name="gender"
             onChange={(e) => setGender(e.target.value)}
           ></input>
-          <label for="male">female</label>
+          <label for="female">female</label>
         </div>
         <br></br>
         <div>
@@ -93,6 +101,7 @@ export const Matches = () => {
             id="title"
             name="title"
             required={true}
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           ></input>
         </div>
@@ -105,6 +114,7 @@ export const Matches = () => {
             type="text"
             id="team1"
             name="team1"
+            value={team1}
             required={true}
             onChange={(e) => setTeam1(e.target.value)}
           ></input>
@@ -118,6 +128,7 @@ export const Matches = () => {
             type="text"
             id="team2"
             name="team2"
+            value={team2}
             required={true}
             onChange={(e) => setTeam2(e.target.value)}
           ></input>
@@ -132,6 +143,7 @@ export const Matches = () => {
             type="text"
             id="score"
             name="score"
+            value={score}
             required={true}
             onChange={(e) => setScore(e.target.value)}
           ></textarea>
@@ -144,6 +156,7 @@ export const Matches = () => {
             id="result"
             name="result"
             required={true}
+            value={result}
             onChange={(e) => setResult(e.target.value)}
           ></input>
         </div>
@@ -153,6 +166,7 @@ export const Matches = () => {
           value="submit"
           onClick={(e) => handleSubmit(e)}
         ></input>
+        <br></br>
       </div>
     </div>
   );
