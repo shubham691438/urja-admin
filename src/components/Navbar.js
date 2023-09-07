@@ -26,7 +26,7 @@ export const Navbar = () => {
           }}
         ></input>
       </Link>
-      <Link to="/points">
+      {/* <Link to="/points">
         <input
           type="button"
           value="Points"
@@ -37,7 +37,7 @@ export const Navbar = () => {
             fontSize: "30px",
           }}
         ></input>
-      </Link>
+      </Link> */}
       <Link to="/results">
         <input
           type="button"

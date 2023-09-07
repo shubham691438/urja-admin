@@ -15,7 +15,8 @@ export const Matches = () => {
       alert("please fill out all the fields");
       return;
     }
-    const data = await fetch(`${process.env.BACKEND_URL}`, {
+
+    let data = await fetch("http://localhost:5000/matches/add-match-score", {
       method: "post",
       body: JSON.stringify({
         sport,
@@ -31,7 +32,8 @@ export const Matches = () => {
       },
     });
     data = await data.json();
-    if (data.message == "success") {
+    //console.log(data);
+    if (data.msg) {
       alert("data inserted successfully");
     } else alert("data could not be uploaded");
   }
@@ -50,7 +52,7 @@ export const Matches = () => {
         <h2>Matches</h2>
         <div>
           <label for="sport" style={{ margin: "5px" }}>
-            sport : 
+            sport :
           </label>
           <input
             type="text"
@@ -63,7 +65,7 @@ export const Matches = () => {
         <br></br>
         <div>
           <label for="gender" style={{ margin: "5px" }}>
-            gender : 
+            gender :
           </label>
           <input
             type="radio"
@@ -84,7 +86,7 @@ export const Matches = () => {
         <br></br>
         <div>
           <label for="title" style={{ margin: "5px" }}>
-            matchTitle : 
+            matchTitle :
           </label>
           <input
             type="text"
@@ -97,7 +99,7 @@ export const Matches = () => {
         <br></br>
         <div>
           <label for="team1" style={{ margin: "5px" }}>
-            team1 : 
+            team1 :
           </label>
           <input
             type="text"
@@ -110,7 +112,7 @@ export const Matches = () => {
         <br></br>
         <div>
           <label for="team2" style={{ margin: "5px" }}>
-            team2 : 
+            team2 :
           </label>
           <input
             type="text"
@@ -124,9 +126,9 @@ export const Matches = () => {
 
         <div>
           <label for="score" style={{ margin: "5px" }}>
-            score : 
+            score :
           </label>
-          <textarea 
+          <textarea
             type="text"
             id="score"
             name="score"

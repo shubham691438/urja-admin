@@ -2,35 +2,44 @@ import React, { useState } from "react";
 import { Navbar } from "./Navbar";
 
 export const Results = () => {
-  const [sport, setSport] = useState("");
   const [branch, setBranch] = useState("");
-  const [gender, setGender] = useState("");
-  const [medal, setMedal] = useState("");
-  const [points, setPoints] = useState("");
-  
+  let [gold, setGold] = useState(0);
+  let [silver, setSilver] = useState(0);
+  let [bronze, setBronze] = useState(0);
+  let [points, setPoints] = useState(0);
 
   async function handleSubmit() {
-    if (!sport || !gender || !branch || !medal || !points) {
+    if (!branch) {
       alert("please fill out all the fields");
       return;
     }
-    const data = await fetch(`${process.env.BACKEND_URL}`, {
+    gold = Number(gold);
+    silver = Number(silver);
+    bronze = Number(bronze);
+    points = Number(points);
+    let data = await fetch("http://localhost:5000/medals/update-medal-table", {
       method: "post",
       body: JSON.stringify({
-        sport,
         branch,
-        gender,
-       medal,
-        points, 
+        gold,
+        silver,
+        bronze,
+        points,
       }),
       headers: {
         "Content-Type": "application/json",
       },
     });
     data = await data.json();
-    if (data.message == "success") {
+    //console.log(data);
+    if (data.msg) {
       alert("data inserted successfully");
     } else alert("data could not be uploaded");
+    setGold(0);
+    setSilver(0);
+    setBronze(0);
+    setPoints(0);
+    setBranch("");
   }
 
   return (
@@ -45,7 +54,7 @@ export const Results = () => {
         }}
       >
         <h2>Results</h2>
-        <div>
+        {/* <div>
           <label for="sport" style={{ margin: "5px" }}>
             sport : 
           </label>
@@ -56,22 +65,23 @@ export const Results = () => {
             required={true}
             onChange={(e) => setSport(e.target.value)}
           ></input>
-        </div>
+      </div>*/}
         <br></br>
         <div>
-        <label for="branch" style={{ margin: "5px" }}>
-            Branch : 
+          <label for="branch" style={{ margin: "5px" }}>
+            Branch :
           </label>
           <input
             type="text"
             id="branch"
             name="branch"
+            value={branch}
             required={true}
             onChange={(e) => setBranch(e.target.value)}
           ></input>
         </div>
-        <br></br>
-        <div>
+
+        {/* <div>
           <label for="gender" style={{ margin: "5px" }}>
             gender : 
           </label>
@@ -90,11 +100,11 @@ export const Results = () => {
             onChange={(e) => setGender(e.target.value)}
           ></input>
           <label for="male">female</label>
-        </div>
-        <br></br>
-        <div>
+        </div> */}
+        {/* <br></br> */}
+        {/* <div>
           <label for="medal" style={{ margin: "5px" }}>
-            Medal : 
+            Medal :
           </label>
           <input
             type="radio"
@@ -118,27 +128,65 @@ export const Results = () => {
             onChange={(e) => setMedal(e.target.value)}
           ></input>
           <label for="bronze">Bronze</label>
+      </div>*/}
+        <br></br>
+        <div>
+          <label for="gold" style={{ margin: "5px" }}>
+            Gold :
+          </label>
+          <input
+            type="text"
+            onChange={(e) => setGold(e.target.value)}
+            value={gold}
+          ></input>
+        </div>
+        <br></br>
+        <div>
+          <label for="silver" style={{ margin: "5px" }}>
+            Silver:
+          </label>
+          <input
+            type="text"
+            id="silver"
+            name="silver"
+            value={silver}
+            onChange={(e) => setSilver(e.target.value)}
+          ></input>
+        </div>
+
+        <br></br>
+        <div>
+          <label for="bronze" style={{ margin: "5px" }}>
+            Bronze:
+          </label>
+          <input
+            type="text"
+            id="bronze"
+            name="bronze"
+            value={bronze}
+            onChange={(e) => setBronze(e.target.value)}
+          ></input>
         </div>
         <br></br>
         <div>
           <label for="points" style={{ margin: "5px" }}>
-            Points Secured : 
+            Points
           </label>
-          <textarea
-            type="decomal-number"
-            id="score"
-            name="score"
-            required={true}
+          <input
+            type="text"
+            id="points"
+            name="points"
+            value={points}
             onChange={(e) => setPoints(e.target.value)}
-          ></textarea>
+          ></input>
         </div>
-        
         <br></br>
         <input
           type="button"
           value="submit"
           onClick={(e) => handleSubmit(e)}
         ></input>
+        <br></br>
       </div>
     </div>
   );
