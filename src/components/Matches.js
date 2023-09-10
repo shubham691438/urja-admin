@@ -21,7 +21,7 @@ export const Matches = () => {
       body: JSON.stringify({
         sport,
         gender,
-        title,
+        matchTitle:title,
         team1,
         team2,
         score,
