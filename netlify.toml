@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://street-sports-backend.onrender.com/api/:splat"
+  to = "https://urja2023-backend.onrender.com/api/:splat"
   status = 200
