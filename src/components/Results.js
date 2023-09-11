@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Navbar } from "./Navbar";
 
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 export const Results = () => {
   const [branch, setBranch] = useState("");
   let [gold, setGold] = useState(0);
@@ -41,7 +47,6 @@ export const Results = () => {
     setPoints(0);
     setBranch("");
   }
-
   return (
     <div>
       <Navbar></Navbar>
@@ -67,68 +72,29 @@ export const Results = () => {
           ></input>
       </div>*/}
         <br></br>
-        <div>
-          <label for="branch" style={{ margin: "5px" }}>
-            Branch :
-          </label>
-          <input
-            type="text"
-            id="branch"
-            name="branch"
-            value={branch}
-            required={true}
-            onChange={(e) => setBranch(e.target.value)}
-          ></input>
-        </div>
 
-        {/* <div>
-          <label for="gender" style={{ margin: "5px" }}>
-            gender : 
-          </label>
-          <input
-            type="radio"
-            value="male"
-            name="gender"
-            defaultChecked={true}
-            onChange={(e) => setGender(e.target.value)}
-          ></input>
-          <label for="male">Male</label>
-          <input
-            type="radio"
-            value="female"
-            name="gender"
-            onChange={(e) => setGender(e.target.value)}
-          ></input>
-          <label for="male">female</label>
-        </div> */}
-        {/* <br></br> */}
-        {/* <div>
-          <label for="medal" style={{ margin: "5px" }}>
-            Medal :
-          </label>
-          <input
-            type="radio"
-            value="gold"
-            name="medal"
-            defaultChecked={true}
-            onChange={(e) => setMedal(e.target.value)}
-          ></input>
-          <label for="gold">Gold</label>
-          <input
-            type="radio"
-            value="silver"
-            name="medal"
-            onChange={(e) => setMedal(e.target.value)}
-          ></input>
-          <label for="silver">Silver</label>
-          <input
-            type="radio"
-            value="bronze"
-            name="medal"
-            onChange={(e) => setMedal(e.target.value)}
-          ></input>
-          <label for="bronze">Bronze</label>
-      </div>*/}
+        <Box sx={{ width: "300px",  }}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Select Branch</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={branch}
+                label="branch"
+                onChange={(e) => setBranch(e.target.value)}
+              >
+                <MenuItem value="cse">Computer Science And Engineering</MenuItem>
+                <MenuItem value="ece">Electronics and Communication Engineering</MenuItem>
+                <MenuItem value="eee">Electrical Engineering</MenuItem>
+                <MenuItem value="ce">Civil Engineering</MenuItem>
+                <MenuItem value="me">Mechanical Engineering</MenuItem>
+                <MenuItem value="mme">Metallurgical and Materials Engineering</MenuItem>
+                <MenuItem value="pieEce">Production and Industrial Engineering + Engineering and Computational Mechanics</MenuItem>
+                <MenuItem value="pg">M. Tech + M.SC + MCA</MenuItem>
+              </Select>
+          </FormControl>
+        </Box>
+
         <br></br>
         <div>
           <label for="gold" style={{ margin: "5px" }}>
