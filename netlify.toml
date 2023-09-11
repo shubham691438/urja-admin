@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://street-sports-backend.onrender.com/api/:splat"
+  status = 200
