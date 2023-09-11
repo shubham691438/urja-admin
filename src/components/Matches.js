@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Navbar } from "./Navbar";
 
 export const Matches = () => {
+  const backendUrl = process.env.REACT_APP_BACKEND_URL
+
   const [sport, setSport] = useState("");
   const [gender, setGender] = useState("male");
   const [title, setTitle] = useState("");
@@ -16,7 +18,7 @@ export const Matches = () => {
       return;
     }
 
-    let data = await fetch("/api/matches/add-match-score", {
+    let data = await fetch(backendUrl+"/api/matches/add-match-score", {
       method: "post",
       body: JSON.stringify({
         sport,

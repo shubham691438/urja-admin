@@ -8,6 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export const Results = () => {
+  const backendUrl = process.env.REACT_APP_BACKEND_URL
   const [branch, setBranch] = useState("");
   let [gold, setGold] = useState(0);
   let [silver, setSilver] = useState(0);
@@ -23,7 +24,7 @@ export const Results = () => {
     silver = Number(silver);
     bronze = Number(bronze);
     points = Number(points);
-    let data = await fetch("/api/medals/update-medal-table", {
+    let data = await fetch(backendUrl+"/api/medals/update-medal-table", {
       method: "post",
       body: JSON.stringify({
         branch,

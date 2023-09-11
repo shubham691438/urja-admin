@@ -14,6 +14,7 @@ const sports = [
 ];
 
 export const Winners = () => {
+  const backendUrl = process.env.REACT_APP_BACKEND_URL
   const [branch, setBranch] = useState("");
   const [sport, setSport] = useState("cricket");
   const [gender, setGender] = useState("");
@@ -25,7 +26,7 @@ export const Winners = () => {
       alert("please fill all the values");
       return;
     }
-    let data = await fetch("/api/winners/add-winner", {
+    let data = await fetch(backendUrl+"/api/winners/add-winner", {
       method: "post",
       body: JSON.stringify({ branch, sport, gender, position }),
       headers: {
