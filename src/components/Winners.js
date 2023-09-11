@@ -25,7 +25,7 @@ export const Winners = () => {
       alert("please fill all the values");
       return;
     }
-    let data = await fetch("http://localhost:5000/winners/add-winner", {
+    let data = await fetch("/api/winners/add-winner", {
       method: "post",
       body: JSON.stringify({ branch, sport, gender, position }),
       headers: {

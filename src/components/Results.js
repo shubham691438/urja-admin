@@ -23,7 +23,7 @@ export const Results = () => {
     silver = Number(silver);
     bronze = Number(bronze);
     points = Number(points);
-    let data = await fetch("http://localhost:5000/medals/update-medal-table", {
+    let data = await fetch("/api/medals/update-medal-table", {
       method: "post",
       body: JSON.stringify({
         branch,

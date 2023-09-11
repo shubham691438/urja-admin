@@ -9,7 +9,6 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Matches></Matches>}></Route>
-
       <Route path="/results" element={<Results></Results>}></Route>
       <Route path="/winners" element={<Winners></Winners>}></Route>
     </Routes>

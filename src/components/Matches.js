@@ -16,7 +16,7 @@ export const Matches = () => {
       return;
     }
 
-    let data = await fetch("http://localhost:5000/matches/add-match-score", {
+    let data = await fetch("/api/matches/add-match-score", {
       method: "post",
       body: JSON.stringify({
         sport,
