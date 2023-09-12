@@ -59,7 +59,7 @@ export const Results = () => {
           flexDirection: "column",
         }}
       >
-        <h2>Results</h2>
+        <h2>Home Medal Table</h2>
         {/* <div>
           <label for="sport" style={{ margin: "5px" }}>
             sport : 

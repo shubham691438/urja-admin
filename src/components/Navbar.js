@@ -43,7 +43,7 @@ export const Navbar = () => {
       <Link to="/results">
         <input
           type="button"
-          value="Results"
+          value="Home Medal Table"
           style={{
             minWidth: "33vw",
             maxWidth: "150px",
