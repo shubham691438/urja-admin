@@ -90,7 +90,7 @@ export const Results = () => {
                 <MenuItem value="ce">Civil Engineering</MenuItem>
                 <MenuItem value="me">Mechanical Engineering</MenuItem>
                 <MenuItem value="mme">Metallurgical and Materials Engineering</MenuItem>
-                <MenuItem value="pieEce">Production and Industrial Engineering + Engineering and Computational Mechanics</MenuItem>
+                <MenuItem value="pie-ecm">Production and Industrial Engineering + Engineering and Computational Mechanics</MenuItem>
                 <MenuItem value="pg">M. Tech + M.SC + MCA</MenuItem>
               </Select>
           </FormControl>
