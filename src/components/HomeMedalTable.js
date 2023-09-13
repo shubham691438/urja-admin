@@ -48,6 +48,8 @@ export const HomeMedalTable = () => {
     setPoints(0);
     setBranch("");
   }
+
+  
   return (
     <div>
       <Navbar></Navbar>
