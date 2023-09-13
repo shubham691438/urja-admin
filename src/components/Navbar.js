@@ -53,10 +53,10 @@ export const Navbar = () => {
           }}
         ></input>
       </Link>
-      <Link to="/winners">
+      <Link to="/upcomming-match">
         <input
           type="button"
-          value="Winners"
+          value="upcommingMatch"
           style={{
             maxWidth: "150px",
             minWidth: "33vw",
