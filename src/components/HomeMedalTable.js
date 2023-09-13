@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export const Results = () => {
+export const HomeMedalTable = () => {
   const backendUrl = process.env.REACT_APP_BACKEND_URL
   const [branch, setBranch] = useState("");
   let [gold, setGold] = useState(0);

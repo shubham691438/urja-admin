@@ -40,7 +40,7 @@ export const Navbar = () => {
           }}
         ></input>
       </Link> */}
-      <Link to="/results">
+      <Link to="/home-medal-table">
         <input
           type="button"
           value="Home Medal Table"
