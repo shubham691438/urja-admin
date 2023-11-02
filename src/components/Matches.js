@@ -81,7 +81,7 @@ export const Matches = () => {
           flexDirection: "column",
         }}
       >
-        <h2>Matches</h2>
+        <h2>Results</h2>
         
         <Box sx={{ width: "300px",  }}>
           <FormControl fullWidth>
