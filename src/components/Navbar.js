@@ -18,7 +18,7 @@ export const Navbar = () => {
       <Link to="/">
         <input
           type="button"
-          value="Matches"
+          value="Results"
           style={{
             minWidth: "33vw",
             maxWidth: "150px",
